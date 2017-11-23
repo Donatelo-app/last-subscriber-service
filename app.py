@@ -12,7 +12,7 @@ app = core.app
 core.set_service(service)
 
 
-@app.route("/vk_callback/<secret_key>", methods=["POST"])
+@app.route("/vk_callback/<secret_code>", methods=["POST"])
 def vk_callback(secret_code):
 	group = service.mongo.find_one({"fields.secret_code": secret_code})
 	if group is None:
